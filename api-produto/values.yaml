@@ -1,0 +1,18 @@
+api:
+  image: carlosmendesrv/rotten-potatoes:latest
+  #serviceType: LoadBalancer
+  serviceType: ClusterIP
+  ingress: ["api.127.0.0.1.nip.io","aulakubedev.com.br"]
+  
+mongodb:
+  auth:
+    rootPassword: mongoRoot
+    usernames: ['mongouser']
+    passwords: ['mongopwd']
+    databases: ['admin']
+  persistence:
+    enabled: false
+  livenessProbe:
+    enabled: false
+  readinessProbe:
+    enabled: false

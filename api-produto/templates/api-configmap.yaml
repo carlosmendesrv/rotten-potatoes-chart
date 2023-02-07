@@ -1,0 +1,8 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: {{ .Release.Name }}-api-configmap
+data:
+  MONGODB_HOST: {{ template "mongodb.serviceName" .  }}
+  MONGODB_DB: 'admin'
+  # MONGODB_DB: {{ toJson .Values.mongodb.auth.databases | quote }}
